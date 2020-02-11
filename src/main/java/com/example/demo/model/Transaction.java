@@ -21,6 +21,10 @@ public class Transaction extends Rewards {
     @Temporal(TemporalType.TIMESTAMP)
     private Date saveDate;
 
+    public Double getTotal() {
+        return total;
+    }
+
     @Override
     public Long getPoints() {
         this.points = 0l;
