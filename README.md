@@ -12,7 +12,7 @@ This is a RESTful webservice implementation and using Spring Boot is a requireme
 §  Make up a data set to best demonstrate your solution
 ```
 
-This is a RESTAPI service to perform CRUD operations on a given note. Every note is a private resource to user who creates it and can perform Create, Update, Read or Delete. 
+This is a REST service which performs the above logic, the API is barebones of the requirement. The data is in data.sql in application resources.
 
 ## Getting Started
 
@@ -25,19 +25,11 @@ What things you need to install the software and how to install them
 ```
 Java
 Maven
-
 ```
 
 ### Installing
 
-You can install using the docker
-
-
-```
-Docker compose-up -d
-```
-
-And for manual installation witout you can download Java 1.8 and greater.
+ Download Java 1.8 and greater (Open JDK prefered)and maven.
 
 ```
 ./src mvn clean build
@@ -48,10 +40,10 @@ Use postman to test the rest end points
 
 ```
 > HTTP Method	Available URI	Summary
-- POST	/notes	To create a notebook
-- GET	/notes/{notebookName}	To get a specific notebook detail
-- GET	/notes	To get the details of all the notebooks
-- DELETE	/notes/{notebookName}	To delete a specific notebook
+- POST	/transaction/{id} To post a Transaction.
+- GET	/transaction/{id}	To get a specific transaction detail
+- GET	/rewards	To get the details of all the rewards
+- DELETE	/transaction/{id}	To delete a specific transaction.
 ```
 
 ### URI Method summary
@@ -64,15 +56,14 @@ Example Model to create a new notebook using POST method and then use GET method
   "description": "string",
 }
 ```
-This API also provides the following resources mapped to the respective HTTP methods which supports CRUD operations for notes for a specified Notebook.
-
+This API also provides the following resources mapped to the respective HTTP methods which supports CRUD operations for a Transaction.
 ```
-- POST	/notes/{noteName}/notes	To create a note in the specified notebook
-- GET	/notes/{noteName}/notes/{title}	To get a specific note detail in the specified notebook
-- GET	/notes/{noteName}/notes	To get all the notes associated to the specified notebook
-- GET	/notes/{noteName}/{tag}	Given a notebook, get filtered list of notes that contain the given tag string
-- PUT	/notes/{noteName}/notes/{title}	To update a specific note associated with the given notebook
-- DELETE /notes/{noteName}/notes/{title}	To delete a specific note associated with the given notebook
+- POST	/transaction/{transaction}/user- To create a new Transaction
+- GET	/transaction/{id}/rewards	To get all Rewards
+- GET	/transaction/{transaction}/id	To get all the transaction associated to the specified user with an id.
+- GET	/rewards/{name}/{id}	Given a reward, get filtered list of name that contain the given tag id
+- PUT	/transaction/{transaction}/{id}	To update a specific transaction associated with the given id/user.
+- DELETE /transaction/{id}	To delete a specific transaction associated with the given user.
 ```
 
 Example model to create a POST method  
@@ -89,8 +80,8 @@ Example model to create a POST method
 Example model outputs the following using GET method
 ```
 - "tags" - This is a string Array
-- "createdTime" - This is set with the LocalDateTime value when a new note is created
-- "lastModified" - This is set with the LocalDateTime value when a note is updated
+- "createdTime" - This is set with the LocalDateTime value when a new transaction is created
+- "lastModified" - This is set with the LocalDateTime value when a transcation is updated
 
 ```
 
