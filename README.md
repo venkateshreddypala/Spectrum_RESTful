@@ -43,7 +43,6 @@ Use postman to test the rest end points
 - POST	/transaction/{id} To post a Transaction.
 - GET	/transaction/{id}	To get a specific transaction detail
 - GET	/rewards	To get the details of all the rewards
-- DELETE	/transaction/{id}	To delete a specific transaction.
 ```
 
 ### URI Method summary
@@ -63,7 +62,6 @@ This API also provides the following resources mapped to the respective HTTP met
 - GET	/transaction/{transaction}/id	To get all the transaction associated to the specified user with an id.
 - GET	/rewards/{name}/{id}	Given a reward, get filtered list of name that contain the given tag id
 - PUT	/transaction/{transaction}/{id}	To update a specific transaction associated with the given id/user.
-- DELETE /transaction/{id}	To delete a specific transaction associated with the given user.
 ```
 
 Example model to create a POST method  
